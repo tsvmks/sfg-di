@@ -1,13 +1,17 @@
 package tsvmks.springframework.sfgdi.controllers;
 
 import org.springframework.stereotype.Controller;
+import tsvmks.springframework.sfgdi.services.GreetingService;
 
 @Controller
 public class MyController {
+    private GreetingService greetingService;
+
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     public String sayHello() {
-        System.out.printf("Hello, world!!!");
-
-        return "Hi Folks!";
+        return greetingService.sayGreeting();
     }
 }
