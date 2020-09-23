@@ -3,10 +3,7 @@ package tsvmks.springframework.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import tsvmks.springframework.sfgdi.controllers.ConstructorInjectedController;
-import tsvmks.springframework.sfgdi.controllers.MyController;
-import tsvmks.springframework.sfgdi.controllers.PropertyInjectedController;
-import tsvmks.springframework.sfgdi.controllers.SetterInjectedController;
+import tsvmks.springframework.sfgdi.controllers.*;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -17,6 +14,11 @@ public class SfgDiApplication {
 		MyController controller = (MyController) context.getBean("myController");
 
 		String s = controller.sayHello();
+
+		System.out.println("------Property");
+
+		I18nController i18nController = (I18nController)context.getBean("i18nController");
+		i18nController.sayHello();
 
 		System.out.println(s);
 
